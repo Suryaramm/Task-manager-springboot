@@ -61,6 +61,7 @@ const Task = () => {
 
   const selectTask = (TaskId) => {
     const selectedTask = data.find((data) => data.id === TaskId);
+    console.log(selectedTask)
     setSelectedTaskId(TaskId);
     setDescription(selectedTask.description);
     setStatus(selectedTask.status);
@@ -109,9 +110,9 @@ const Task = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container ">
       <h2>Task List</h2>
-
+      <div className=" d-flex justify-content-center">
       <form onSubmit={selectedTaskId ? updateTask : addTask}>
         <div className="form-group">
        
@@ -130,7 +131,7 @@ const Task = () => {
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
-            <option value="">Select Status</option>
+            <option value=""> Status</option>
 
             <option value="yet to complete">yet to complete</option>
 
@@ -140,7 +141,7 @@ const Task = () => {
           </select>
         </div>
         <div className="form-group">
-          {/* <label>Author:</label> */}
+         
           <input
             type="Date"
             className="form-control"
@@ -163,7 +164,7 @@ const Task = () => {
           {selectedTaskId ? "Update" : "Add"}
         </button>
       </form>
-
+      </div>
       <table className="table">
         <thead>
           <tr>
